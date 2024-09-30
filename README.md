@@ -1,32 +1,11 @@
-## Deep Generative Prior (DGP)
+# GeoDeepGenerativePrior
 
-### Paper
+This is the official repository for "Prior-Guide Adaptive Gan Method for Various Borehole Image Inpainting". Please cite this work if you find this repository useful for your project.
 
-Xingang Pan, Xiaohang Zhan, Bo Dai, Dahua Lin, Chen Change Loy, Ping Luo, "[Exploiting Deep Generative Prior for Versatile Image Restoration and Manipulation](https://arxiv.org/abs/2003.13659)", ECCV2020 (**Oral**)  
 
-Video: https://youtu.be/p7ToqtwfVko<br>
+During geophysical exploration, inpainting defective logging images caused by mismatches between logging tools and borehole sizes can affect fracture and hole extraction, petrographic analysis and stratigraphic studies. However, existing methods do not describe stratigraphic continuity enough. Also, they ignore the completeness of characterization in terms of fractures, gravel structures, and fine-grained textures in the logging images. To address these issues, we propose a deep learning method for inpainting stratigraphic features. Firstly, to enhance the continuity of image inpainting, we build a generative adversarial network (GAN) and train it on numerous natural images to extract relevant features that guide the recovery of continuity characteristics. Secondly, to ensure complete structural and textural features are present in geological formations, we introduce a feature-extraction-fusion module with a co-occurrence mechanism consisting of channel attention(CA) and self-attention(SA). CA improves texture effects by adaptively adjusting control parameters based on highly correlated prior features from electrical logging images. SA captures long-range contextual associations across pre-inpainted gaps to improve completeness in fractures and gravels structure representation. The proposed method has been tested on various borehole images demonstrating its reliability and robustness.
 
-### Demos
-
-DGP exploits the image prior of an off-the-shelf GAN for various image restoration and manipulation.
-
-**Image restoration**:
-
-<p align="center">
-    <img src="data/restoration.gif", width="900">
-</p>
-
-**Image manipulation**:
-
-<p align="center">
-    <img src="data/manipulation.gif", width="800">
-</p>
-
-A **learned prior** helps **internal learning**:
-
-<p align="center">
-    <img src="data/windows.png", width="900">
-</p>
+## Usage
 
 ### Requirements
 
@@ -57,32 +36,6 @@ Example3: evaluate on 1k ImageNet validation images via distributed training bas
     # need to specifiy the root path of imagenet validate set in --root_dir
     sh experiments/imagenet1k_128/colorization/train_slurm.sh   
 
-Note:  
-\- BigGAN needs a class condition as input. If no class condition is provided, it would be chosen from a set of random samples.  
-\- The hyperparameters provided may not be optimal, feel free to tune them.  
 
-### Acknowledgement
 
-The code of BigGAN is borrowed from [https://github.com/ajbrock/BigGAN-PyTorch](https://github.com/ajbrock/BigGAN-PyTorch).
 
-### Citation
-
-```  
-@inproceedings{pan2020dgp,
-    author = {Pan, Xingang and Zhan, Xiaohang and Dai, Bo and Lin, Dahua and Loy, Chen Change and Luo, Ping},
-    title = {Exploiting Deep Generative Prior for Versatile Image Restoration and Manipulation},
-    booktitle = {European Conference on Computer Vision (ECCV)},
-    year = {2020}
-}
-
-@ARTICLE{pan2020dgp_pami,
-    author={Pan, Xingang and Zhan, Xiaohang and Dai, Bo and Lin, Dahua and Loy, Chen Change and Luo, Ping},
-    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-    title={Exploiting Deep Generative Prior for Versatile Image Restoration and Manipulation}, 
-    year={2021},
-    volume={},
-    number={},
-    pages={1-1},
-    doi={10.1109/TPAMI.2021.3115428}
-}
-```  
