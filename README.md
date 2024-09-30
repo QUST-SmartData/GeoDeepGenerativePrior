@@ -5,6 +5,11 @@ This is the official repository for "[Prior-Guide Adaptive Gan Method for Variou
 
 During geophysical exploration, inpainting defective logging images caused by mismatches between logging tools and borehole sizes can affect fracture and hole extraction, petrographic analysis and stratigraphic studies. However, existing methods do not describe stratigraphic continuity enough. Also, they ignore the completeness of characterization in terms of fractures, gravel structures, and fine-grained textures in the logging images. To address these issues, we propose a deep learning method for inpainting stratigraphic features. Firstly, to enhance the continuity of image inpainting, we build a generative adversarial network (GAN) and train it on numerous natural images to extract relevant features that guide the recovery of continuity characteristics. Secondly, to ensure complete structural and textural features are present in geological formations, we introduce a feature-extraction-fusion module with a co-occurrence mechanism consisting of channel attention(CA) and self-attention(SA). CA improves texture effects by adaptively adjusting control parameters based on highly correlated prior features from electrical logging images. SA captures long-range contextual associations across pre-inpainted gaps to improve completeness in fractures and gravels structure representation. The proposed method has been tested on various borehole images demonstrating its reliability and robustness.
 
+![network](overview.png)
+![network](network.png)
+![network](netblock.png)
+
+
 ## Usage
 
 ### Requirements
